@@ -9,11 +9,14 @@ RUN apt-get update && \
 # Set Working Directory
 WORKDIR /app
 
-# Copy requirements.txt dan install dependensi Python
+# Copy requirements.txt ke dalam container
 COPY requirements.txt /app/
-RUN python -m venv /opt/venv && \
-    . /opt/venv/bin/activate && \
-    pip install --no-cache-dir -r requirements.txt
+
+# Buat virtual environment di dalam container
+RUN python -m venv /opt/venv
+
+# Aktifkan virtual environment dan install dependencies
+RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Set environment variable untuk Streamlit
 ENV STREAMLIT_SERVER_HEADLESS=true
