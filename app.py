@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import subprocess
 import numpy as np
 import librosa
 import tempfile
@@ -157,18 +156,9 @@ sentence_list = [
     "The magnificent seven rode their horses across the vast prairie under the blazing sun.",
     "Communication is essential for building strong relationships with family and friends throughout life.",
     "Technology continues to advance rapidly, changing the way we work, learn, and connect with others around the world."
+
 ]
 
-# Pastikan ffmpeg tersedia di lingkungan
-def install_ffmpeg():
-    if not os.system("ffmpeg -version"):
-        print("FFmpeg is already installed!")
-    else:
-        print("Installing FFmpeg...")
-        subprocess.run(['apt-get', 'install', 'ffmpeg'], check=True)
-
-# Instalasi FFmpeg jika tidak ditemukan
-install_ffmpeg()
 
 class DysarthriaAnalyzer:
     def __init__(self, model_path):
