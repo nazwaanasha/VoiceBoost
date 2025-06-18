@@ -4,6 +4,7 @@ librosa
 gTTS
 praat-parselmouth
 git+https://github.com/openai/whisper.git
+whisper
 joblib
 scipy
 textdistance
